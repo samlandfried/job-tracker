@@ -19,7 +19,7 @@ You will be working with the existing code in this repository to modify a person
 * Companies have a name.
 * A Job `belongs_to` a Company, and a Company `has_many` jobs.
 
-You will be to add the following functionality to this application.
+You will add the following functionality to this application.
 
 ### Jobs
 
