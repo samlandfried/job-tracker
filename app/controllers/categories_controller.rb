@@ -2,6 +2,16 @@ class CategoriesController < ApplicationController
 
   before_action :set_category, only: [:show, :update, :edit, :destroy]
 
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.create(category_params)
+
+    redirect_to @category
+  end
+
   def index
     @categories = Category.all
   end

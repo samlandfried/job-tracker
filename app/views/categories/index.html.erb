@@ -1,5 +1,6 @@
 <h1>Categories</h1>
 
+<%= button_to "New Category", new_category_path, method: 'get' %>
 <ul>
 <% @categories.each do |category| %>
   <li>
