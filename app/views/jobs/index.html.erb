@@ -1,3 +1,4 @@
+<%= button_to "Back to all companies", companies_path, method: 'get' %>
 All Jobs for <strong><%= @company.name %></strong>
 
 <%= button_to "Add New Job", new_company_job_path(@company), method: 'get' %>
