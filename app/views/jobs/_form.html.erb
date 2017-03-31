@@ -2,6 +2,9 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
+  <%= f.label :category %>
+  <%= f.select :category_id, @categories %>
+
   <%= f.label :description %>
   <%= f.text_field :description %>
 
