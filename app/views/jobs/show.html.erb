@@ -1,19 +1,35 @@
 Title: <%= @job.title %>
 <br>
-
-Category: <%= link_to @job.category.title, category_path(@job.category) %>
-<br>
-
-Description: <%= @job.description %>
-<br>
-
-Level of Interest: <%= @job.level_of_interest %>
-<br>
-
-City: <%= @job.city %>
-<br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
-
 <%= button_to "Edit", edit_job_path(@job), method: 'get' %>
 <%= button_to "Delete", job_path(@job), method: 'delete' %>
+<br>
+Category: <%= link_to @job.category.title, category_path(@job.category) %>
+<br>
+Description: <%= @job.description %>
+<br>
+Level of Interest: <%= @job.level_of_interest %>
+<br>
+City: <%= @job.city %>
+<br>
+Company: <%= link_to @job.company.name, company_path(@job.company) %>
+<br>
+Leave a comment:
+<%= form_for [@job, @comment] do |f| %>
+<%= f.label :content %>
+<%= f.text_area :content %>
+
+<%= f.submit %>
+<% end %>
+<br>
+Comments:
+<ul>
+  <% @comments.each do |comment| %>
+  <li>
+    <p>
+      <%= comment.content %>
+    </p>
+    <%= button_to "Edit", edit_job_comment_path(@job, comment), method: 'get' %>
+    <%= button_to "Delete", job_comment_path(@job, comment), method: 'delete' %>
+  </li>
+  <% end %>
+</ul>
