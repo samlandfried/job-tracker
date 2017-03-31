@@ -1,0 +1,10 @@
+<h1>Categories</h1>
+
+<ul>
+<% @categories.each do |category| %>
+  <li>
+    <%= link_to category.title, category_path(category) %>
+    with <%= category.jobs.count %> jobs
+  </li>
+  <% end %>
+</ul>

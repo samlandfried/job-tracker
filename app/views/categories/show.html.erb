@@ -1,0 +1,12 @@
+<h1><%= @category.title %> Jobs</h1>
+<%= button_to "Edit #{@category.title}", edit_category_path(@category), method: 'get' %>
+<%= button_to "Delete #{@category.title}", category_path(@category), method: 'delete' %>
+<ul>
+  <% @category.jobs.each do |job| %>
+  <li>
+    <%= link_to job.title, company_job_path(job.company, job) %>
+  </li>
+  <% end %>
+</ul>
+
+<%= button_to "Back to All Categories", categories_path, method: 'get' %>
