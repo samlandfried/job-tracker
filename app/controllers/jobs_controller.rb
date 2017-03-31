@@ -1,13 +1,13 @@
 class JobsController < ApplicationController
+
+  before_action :all_categories, only: [:new, :edit]
+
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
   end
 
   def new
-    @categories = Category.all.map do |category|
-      [category.title, category.id]
-    end
     @company = Company.find(params[:company_id])
     @job = Job.new()
   end
@@ -28,9 +28,6 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all.map do |category|
-      [category.title, category.id]
-    end
     @job = Job.find(params[:id])
     @company = @job.company
   end
@@ -53,5 +50,9 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+  end
+
+  def all_categories
+    @categories = Category.all
   end
 end
