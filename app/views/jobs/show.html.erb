@@ -2,6 +2,9 @@
 Title: <%= @job.title %>
 <br>
 
+Category: <%= link_to @job.category.title, category_path(@job.category) %>
+<br>
+
 Description: <%= @job.description %>
 <br>
 

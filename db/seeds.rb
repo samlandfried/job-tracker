@@ -9,7 +9,7 @@ CITIES = ["Seattle", "Denver", "Portland", "Indianapolis", "Madison", "Orlando",
 CATEGORIES = []
 
 10.times do
-  CATEGORIES << Category.create(title: Faker::Company.profession.capitalize)
+  CATEGORIES << Category.create(title: Faker::Company.profession.capitalize + "ish")
 end
 
 COMPANIES.each do |name|
