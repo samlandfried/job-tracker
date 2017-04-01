@@ -16,18 +16,19 @@
 </table>
 
 <h3>Companies with the Most Interest</h3>
-
 <table class="companies-with-most-interest">
   <tr>
     <th>Rank</th>
     <th>Company</th>
     <th>Average Level of Interest</th>
   </tr>
+<% @dashboard.companies_with_most_interest(3).each_with_index do |tuple, i| %>
   <tr>
-    <td>i + 1</td>
-    <td>company.name</td>
-    <td>avg(company.jobs.avg(:level_of_interest)</td>
+    <td><%= i + 1 %></td>
+    <td><%= link_to tuple.first.name, company_path(tuple.first) %></td>
+    <td><%= tuple.last %></td>
   </tr>
+  <% end %>
 </table>
 
 <h3>Locations with the Most Jobs</h3>
