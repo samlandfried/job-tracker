@@ -7,10 +7,12 @@
     <th>Level of Interest</th>
     <th>Number of Jobs</th>
   </tr>
+  <% @dashboard.number_of_jobs_by_level_of_interest.each do |interest, count| %>
   <tr>
-    <td>key</td>
-    <td>value</td>
+    <td><%= interest %></td>
+    <td><%= count %></td>
   </tr>
+  <% end %>
 </table>
 
 <h3>Companies with the Most Interest</h3>
