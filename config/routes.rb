@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
   resources :companies do
-    resources :jobs, only: [:index, :create, :new]
+    resources :jobs, only: [:create, :new]
     resources :contacts, only: [:new, :create]
   end
 
-  resources :jobs, only: [:show, :edit, :update, :destroy] do
+  resources :jobs, only: [:index, :show, :edit, :update, :destroy] do
     resources :comments
   end
 

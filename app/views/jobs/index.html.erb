@@ -1,14 +1,7 @@
-<%= button_to "Back to all companies", companies_path, method: 'get' %>
-<h1><%= @company.name %></h1>
-<h3>Contacts</h3>
-<%= button_to "Add Contact", new_company_contact_path(@company), method: 'get' %>
-<% @contacts.each do |contact| %>
-<ul>
-  <%= link_to contact.name, contact_path(contact) %>
-</ul>
-<% end %>
 <h3>Jobs</h3>
-<%= button_to "Add New Job", new_company_job_path(@company), method: 'get' %>
+<p>
+  Visit a <%= link_to 'Company', companies_path %> to add a job.
+</p>
 <% @jobs.each do |job| %>
-<ul><%= link_to job.title, job_path(job) %> at <%= @company.name %> (<%= job.city %>)</ul>
+<ul><%= link_to job.title, job_path(job) %> at <%= link_to job.company.name, company_path(job.company) %> (<%= job.city %>)</ul>
 <% end %>

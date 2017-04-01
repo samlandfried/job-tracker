@@ -3,10 +3,8 @@ class JobsController < ApplicationController
   before_action :all_categories, only: [:new, :edit]
 
   def index
-    @company = Company.find(params[:company_id])
-    @contacts = @company.contacts
-    @jobs = @company.jobs unless params[:sort]
-    @jobs = @company.jobs.order(:city) if params[:sort] == 'location'
+    @jobs = Job.all unless params[:sort]
+    @jobs = Job.order(:city) if params[:sort] == 'location'
   end
 
   def new
