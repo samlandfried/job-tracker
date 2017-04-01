@@ -3,5 +3,5 @@
   Visit a <%= link_to 'Company', companies_path %> to add a job.
 </p>
 <% @jobs.each do |job| %>
-<ul><%= link_to job.title, job_path(job) %> at <%= link_to job.company.name, company_path(job.company) %> (<%= job.city %>)</ul>
+<ul><%= link_to job.title, job_path(job) %> at <%= link_to job.company.name, company_path(job.company) %> in <%= job.city %> (Interest: <%= job.level_of_interest %>)</ul>
 <% end %>
