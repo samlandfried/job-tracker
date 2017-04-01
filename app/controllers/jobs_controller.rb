@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all unless params[:sort]
     @jobs = Job.order(:city) if params[:sort] == 'location'
+    @jobs = Job.where("city='#{params[:location]}'") if params[:location]
   end
 
   def new

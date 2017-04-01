@@ -38,8 +38,10 @@
     <th>Location</th>
     <th>Number of Jobs</th>
   </tr>
+  <% @dashboard.number_of_jobs_by_city.each do |city, count| %>
   <tr>
-    <td>location</td>
-    <td>count</td>
+    <td><%= link_to city, jobs_path + "?location=#{city}" %></td>
+    <td><%= count %></td>
   </tr>
+  <% end %>
 </table>
