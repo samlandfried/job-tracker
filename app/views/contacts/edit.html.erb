@@ -1,6 +1,6 @@
-<h1>New Contact at <%= link_to @company.name, company_path(@company) %></h1>
+<h1>Edit <%= @contact.name %> at <%= @company.name %></h1>
 
-<%= form_for [@company, @contact] do |f| %>
+<%= form_for @contact do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.label :position %>
@@ -9,4 +9,4 @@
 <%= f.text_field :email %>
 
 <%= f.submit %>
-<% end %>>
+<% end %>

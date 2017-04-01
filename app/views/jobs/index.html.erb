@@ -4,7 +4,7 @@
 <%= button_to "Add Contact", new_company_contact_path(@company), method: 'get' %>
 <% @contacts.each do |contact| %>
 <ul>
-  <%= link_to contact.name, company_contact_path(@company, contact) %>
+  <%= link_to contact.name, contact_path(contact) %>
 </ul>
 <% end %>
 <h3>Jobs</h3>

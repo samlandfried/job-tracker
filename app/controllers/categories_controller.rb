@@ -33,7 +33,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.jobs.destroy_all
     @category.destroy
 
     redirect_to categories_path

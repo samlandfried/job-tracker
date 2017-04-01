@@ -1,1 +1,6 @@
-<h1><%=  %></h1>
+<h1><%= @contact.name %></h1>
+
+<h3><%= @contact.position %> at <%= link_to @contact.company.name, company_path(@contact.company) %></h3>
+<h4><%= @contact.email %></h4>
+<%= button_to 'Edit', edit_contact_path(@contact), method: 'get' %>
+<%= button_to 'Delete', contact_path(@contact), method: 'delete' %>
