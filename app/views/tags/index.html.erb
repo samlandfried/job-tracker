@@ -4,6 +4,7 @@
 <% @tags.each do |tag| %>
   <li>
     <%= link_to tag.title.titleize, tag_path(tag) %>
+    <%= button_to 'Delete', tag_path(tag), method: :delete %>
   </li>
   <% end %>
 </ul>

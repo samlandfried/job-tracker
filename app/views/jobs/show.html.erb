@@ -3,7 +3,7 @@ Title: <%= @job.title %>
 <%= button_to "Edit", edit_job_path(@job), method: 'get' %>
 <%= button_to "Delete", job_path(@job), method: 'delete' %>
 <br>
-Tags:
+<%= link_to "Tags:", tags_path %>
 <ul class="tags">
 <% @job.tags.each do |tag| %>
   <li>
