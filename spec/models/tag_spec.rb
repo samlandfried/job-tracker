@@ -23,7 +23,7 @@ RSpec.describe Tag do
   end
 
   describe 'associations' do
-    it 'has many jobs through taggings' do
+    it 'has many jobs' do
       jobs = create_list(:job, 2)
 
       tag = Tag.create(title: 'hippo')
@@ -32,7 +32,4 @@ RSpec.describe Tag do
       expect(tag.jobs).to eq(jobs)
     end
   end
-
-
-
 end
