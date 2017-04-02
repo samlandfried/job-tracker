@@ -1,9 +1,10 @@
 <h1>All Tags</h1>
-<%= button_to "Add Tag", new_tag_path, method: 'get' %>
+<%= button_to "Add Tag", new_tag_path, method: :get %>
 <ul>
 <% @tags.each do |tag| %>
   <li>
     <%= link_to tag.title.titleize, tag_path(tag) %>
+    <%= button_to 'Edit', edit_tag_path(tag), method: :get %>
     <%= button_to 'Delete', tag_path(tag), method: :delete %>
   </li>
   <% end %>
