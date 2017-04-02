@@ -18,6 +18,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
+      add_tags_to(@job)
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to job_path(@job)
     else
@@ -39,9 +40,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     @job.taggings.destroy_all
-    params['job']['tag_ids'].each do |tag_id|
-      @job.tags << Tag.find(tag_id.to_i) unless tag_id.empty?
-    end
+    add_tags_to(@job)
     @job.update(job_params)
 
     redirect_to job_path(@job)
@@ -57,6 +56,12 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
+  end
+
+  def add_tags_to(job)
+    params['job']['tag_ids'].each do |tag_id|
+      job.tags << Tag.find(tag_id.to_i) unless tag_id.empty?
+    end
   end
 
   def all_categories
