@@ -16,8 +16,8 @@ RSpec.describe 'Tag' do
     end
 
     within('ul') do
-      expect(page).to have_link('Plumber #1')
-      expect(page).to have_link('Plumber #2')
+      expect(page).to have_link('Job #1')
+      expect(page).to have_link('Job #2')
     end
   end
 end

@@ -38,7 +38,10 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-
+    @job.taggings.destroy_all
+    params['job']['tags'].each do |tag_id|
+      @job.tags << Tag.find(tag_id.to_i) unless tag_id.empty?
+    end
     @job.update(job_params)
 
     redirect_to job_path(@job)

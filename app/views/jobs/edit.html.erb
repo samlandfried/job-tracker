@@ -3,18 +3,24 @@
 <%= form_for [@job] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
+  <br>
   <%= f.label :category %>(<%= link_to 'Create New Category', new_category_path %>)
   <%= f.collection_select :category_id, @categories, :id, :title, prompt: 'Select Category' %>
-
+  <br>
   <%= f.label :description %>
   <%= f.text_field :description %>
-
+  <br>
   <%= f.label :level_of_interest %>
   <%= f.number_field :level_of_interest %>
-
+  <br>
   <%= f.label :city %>
   <%= f.text_field :city %>
-
+  <br>
+  <%= f.label :tags %>
+  <br>
+  <%= link_to "New Tag", new_tag_path %>
+  <br>
+  <%= f.collection_check_boxes :tags, Tag.all, :id, :title %>
+  <br>
   <%= f.submit %>
 <% end %>
