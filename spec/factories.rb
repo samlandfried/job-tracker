@@ -5,7 +5,9 @@ FactoryGirl.define do
   end
 
   factory :job do
-    title 'plumber'
+    sequence :title do |n|
+      "Plumber ##{n}"
+    end
     description '#1 in the #2 business'
     level_of_interest 22
     city 'Denver'

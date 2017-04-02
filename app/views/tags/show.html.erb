@@ -1,0 +1,9 @@
+<h1><%= @tag.title.titleize %></h1>
+
+<ul class="jobs">
+<% @tag.jobs.each do |job| %>
+  <li>
+    <%= link_to job.title.titleize, job_path(job) %>
+  </li>
+  <% end %>
+</ul>
