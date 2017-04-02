@@ -1,3 +1,25 @@
 <h2>Create a new job at <%= @company.name %> here!</h2>
 
-<%= render partial: "form" %>
+<%= form_for [@company, @job] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :category %>(<%= link_to 'Create New Category', new_category_path %>)
+  <%= f.collection_select :category_id, Category.all, :id, :title, prompt: 'Select Category' %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.label :level_of_interest %>
+  <%= f.number_field :level_of_interest %>
+  <br>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <br>
+  <%= link_to "New Tag", new_tag_path %>
+  <br>
+  <%= f.label :tags %>
+  <%= f.collection_check_boxes :tags, Tag.all, :id, :title %>
+  <br>
+  <%= f.submit %>
+<% end %>

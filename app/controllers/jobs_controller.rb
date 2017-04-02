@@ -39,7 +39,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     @job.taggings.destroy_all
-    params['job']['tags'].each do |tag_id|
+    params['job']['tag_ids'].each do |tag_id|
       @job.tags << Tag.find(tag_id.to_i) unless tag_id.empty?
     end
     @job.update(job_params)
@@ -50,7 +50,7 @@ class JobsController < ApplicationController
   def destroy
     job = Job.find(params[:id]).destroy
 
-    redirect_to company_jobs_path(job.company, job)
+    redirect_to company_path(job.company)
   end
 
   private
